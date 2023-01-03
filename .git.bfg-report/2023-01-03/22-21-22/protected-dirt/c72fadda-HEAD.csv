@@ -1,0 +1,3 @@
+0466cec5aae4811bd8cc6e47e23de325136caaae,DELETE,executable,grafana-9.3.2/bin/grafana-server,113141508,
+9b798708ec659b007db48de9c20cfd7af0ca9328,DELETE,executable,prometheus-2.41.0.darwin-amd64/prometheus,117888256,
+c7735b0d3a2fe68d1c0601654d7b774eb47787a7,DELETE,executable,prometheus-2.41.0.darwin-amd64/promtool,109696624,
