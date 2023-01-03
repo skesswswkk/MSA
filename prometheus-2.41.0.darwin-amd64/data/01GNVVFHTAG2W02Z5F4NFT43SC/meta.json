@@ -1,0 +1,17 @@
+{
+	"ulid": "01GNVVFHTAG2W02Z5F4NFT43SC",
+	"minTime": 1672740000842,
+	"maxTime": 1672747200000,
+	"stats": {
+		"numSamples": 333684,
+		"numSeries": 713,
+		"numChunks": 2852
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GNVVFHTAG2W02Z5F4NFT43SC"
+		]
+	},
+	"version": 1
+}

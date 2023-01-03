@@ -1,0 +1,17 @@
+{
+	"ulid": "01GNVDR80VHW7ZXBY2R15V3P8H",
+	"minTime": 1672725601276,
+	"maxTime": 1672732800000,
+	"stats": {
+		"numSamples": 342240,
+		"numSeries": 713,
+		"numChunks": 2852
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01GNVDR80VHW7ZXBY2R15V3P8H"
+		]
+	},
+	"version": 1
+}

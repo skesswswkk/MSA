@@ -1,0 +1,3 @@
+[2022-12-30 23:19:05,588] INFO [GroupCoordinator 0]: Member console-consumer-62e9ab89-57e2-42cf-bbb7-4e2635164fd3 in group console-consumer-8788 has failed, removing it from the group (kafka.coordinator.group.GroupCoordinator)
+[2022-12-30 23:19:05,648] INFO [GroupCoordinator 0]: Preparing to rebalance group console-consumer-8788 in state PreparingRebalance with old generation 1 (__consumer_offsets-10) (reason: removing member console-consumer-62e9ab89-57e2-42cf-bbb7-4e2635164fd3 on heartbeat expiration) (kafka.coordinator.group.GroupCoordinator)
+[2022-12-30 23:19:05,656] INFO [GroupCoordinator 0]: Group console-consumer-8788 with generation 2 is now empty (__consumer_offsets-10) (kafka.coordinator.group.GroupCoordinator)
