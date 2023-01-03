@@ -1,6 +1,7 @@
 package com.example.orderservice.service;
 
 import com.example.orderservice.dto.OrderDto;
+import com.example.orderservice.dto.OrderStatus;
 import com.example.orderservice.jpa.OrderEntity;
 import com.example.orderservice.jpa.OrderRepository;
 import org.modelmapper.ModelMapper;
@@ -53,7 +54,12 @@ public class OrderServiceImpl implements OrderService{
         return orderRepository.findByUserId(userId);
     }
 
-    public void cancel(){
-
+    /** 주문 취소 (3) : ServiceImpl */
+    @Override
+    public void cancelOrder(String orderId) {
+        //주문 엔티티 조회
+        OrderEntity orderEntity = orderRepository.findByOrderId(orderId);
+        //주문 취소
+        orderEntity.cancel();
     }
 }

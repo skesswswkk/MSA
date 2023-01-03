@@ -86,4 +86,11 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
+
+    /** 주문 취소 (1) : Controller */
+    @PostMapping(value = "/orders/{orderId}/cancel")
+    public String cancelOrder(@PathVariable("orderId") String orderId) {
+        orderService.cancelOrder(orderId);
+        return "redirect:/orders";
+    }
 }
