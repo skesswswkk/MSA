@@ -15,9 +15,4 @@ public class OrderItemEntity {
     private OrderDto orderDto;
     private int orderPrice; //주문 가격
     private int count; //주문 수량
-
-    /** 주문 취소 (5) : OrderItemEntity */
-    public void cancel(){
-         getItem().addStock(count);//**
-    }
 }

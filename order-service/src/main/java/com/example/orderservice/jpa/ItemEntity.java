@@ -12,10 +12,5 @@ public abstract class ItemEntity {
     private String name;
     private int price;
     private int stockQuantity;
-
-    /** 주문 취소 (6) : ItemEntity */
-    public void addStock(int quantity){
-        this.stockQuantity += quantity;
-    }
 }
 

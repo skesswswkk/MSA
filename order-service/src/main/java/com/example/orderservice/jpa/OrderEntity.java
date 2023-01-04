@@ -1,8 +1,4 @@
 package com.example.orderservice.jpa;
-
-import com.example.orderservice.dto.DeliveryDto;
-import com.example.orderservice.dto.DeliveryStatus;
-import com.example.orderservice.dto.OrderStatus;
 import lombok.Data;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -35,26 +31,4 @@ public class OrderEntity implements Serializable {
     @Column(nullable = false, updatable = false, insertable = false)
     @ColumnDefault(value = "CURRENT_TIMESTAMP")
     private Date createdAt;
-
-    @Column(nullable = false)
-    private DeliveryDto deliveryDto;
-
-    public void setDelivery(DeliveryDto deliveryDto) {
-        this.deliveryDto = deliveryDto;
-        deliveryDto.setOrderEntity(this);
-    }
-
-    private OrderStatus orderStatus;
-    private OrderItemEntity orderItem;
-
-    /** 주문 취소 (4) : OrderEntity */
-    public void cancel() {
-        if (deliveryDto.getDeliveryStatus() == DeliveryStatus.COMP) {
-            throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
-        }
-
-        this.setOrderStatus(OrderStatus.CANCEL);
-
-        orderItem.cancel();
-    }
 }

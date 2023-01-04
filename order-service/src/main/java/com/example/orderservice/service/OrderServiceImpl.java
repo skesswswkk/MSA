@@ -1,14 +1,12 @@
 package com.example.orderservice.service;
 
 import com.example.orderservice.dto.OrderDto;
-import com.example.orderservice.dto.OrderStatus;
 import com.example.orderservice.jpa.OrderEntity;
 import com.example.orderservice.jpa.OrderRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -52,14 +50,5 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Iterable<OrderEntity> getOrdersByUserId(String userId) {
         return orderRepository.findByUserId(userId);
-    }
-
-    /** 주문 취소 (3) : ServiceImpl */
-    @Override
-    public void cancelOrder(String orderId) {
-        //주문 엔티티 조회
-        OrderEntity orderEntity = orderRepository.findByOrderId(orderId);
-        //주문 취소
-        orderEntity.cancel();
     }
 }

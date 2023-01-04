@@ -43,13 +43,6 @@ public class UserController {
                             + ", token.expiration time=" + env.getProperty("token.expiration_time"));
     }
 
-    @GetMapping("/welcome")
-    @Timed(value="users.status", longTask = true)
-    public String welcome(){
-//        return env.getProperty("greeting.message");
-        return greeting.getMessage();
-    }
-
     @PostMapping("/users")
     @Timed(value="users.welcome", longTask = true)
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user){

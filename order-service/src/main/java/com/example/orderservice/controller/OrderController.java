@@ -52,7 +52,6 @@ public class OrderController {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-        //orderDetails -> orderDto 변환
         OrderDto orderDto = modelMapper.map(orderDetails, OrderDto.class);
         orderDto.setUserId(userId);
 
@@ -87,10 +86,21 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    /** 주문 취소 (1) : Controller */
+    /** 주문 취소 */
     @PostMapping(value = "/orders/{orderId}/cancel")
-    public String cancelOrder(@PathVariable("orderId") String orderId) {
-        orderService.cancelOrder(orderId);
+    public String cancelOrder(@PathVariable("orderId") String orderId,
+                              @RequestBody RequestOrder orderDetails) {
+        log.info("Before retrieve orderCancel data");
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        OrderDto orderDto = modelMapper.map(orderDetails, OrderDto.class);
+        orderDto.setOrderId(orderId);
+
+        /* send this cancelOrder to kafka */
+        kafkaProducer.send ("cancelOrder-catalog-topic", orderDto);
+        log.info("After retrieve orderCancel data");
+
         return "redirect:/orders";
     }
 }

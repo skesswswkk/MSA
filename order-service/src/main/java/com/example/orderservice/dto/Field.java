@@ -10,5 +10,4 @@ public class Field {
     private String type;
     private boolean optional;
     private String filed;
-
 }
